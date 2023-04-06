@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+}
+
+
+
+#navBar-wrapper{
+    background-color: #F7C8E0;
+}
+
+#store-name{
+    text-align: center;
+    margin-top: 0;
+}
+
+.store-links-wrapper{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.store-links{
+    color: #DFFFD8;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
