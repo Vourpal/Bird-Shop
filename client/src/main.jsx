@@ -9,13 +9,14 @@ import {
 import ErrorPage from "./Layout/error-page";
 import RootLayout from "./Layout/RootLayout";
 import CartLayout from "./Layout/CartLayout";
+import ItemList from "./Components/ItemList";
 
 // React-Router layout
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<RootLayout />}>
-        <Route path="pets" />
+        <Route path="pets" element={<ItemList/>} />
         <Route path="cages" />
         <Route path="food" />
         <Route path="toys" />
