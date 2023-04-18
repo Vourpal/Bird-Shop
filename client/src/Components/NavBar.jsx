@@ -8,13 +8,13 @@ const NavBar = () => {
         <h1 id="store-name">Chirp</h1>
       </a>
       <nav className="store-links-wrapper">
-        <NavLink className="store-links" to="/pets">
+        <NavLink className="store-links" to="/category/pets">
           Pets
         </NavLink>
-        <NavLink className="store-links" to="/cages">
+        <NavLink className="store-links" to="/category/cages">
           Cages
         </NavLink>
-        <NavLink className="store-links" to="/food">
+        <NavLink className="store-links" to="/category/food">
           Food
         </NavLink>
         <NavLink className="store-links" to="/toys">

@@ -15,7 +15,8 @@ import ItemList from "./Components/ItemList";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
-      <Route path="/" element={<RootLayout />}>
+      <Route path="/" element={<RootLayout/>}/>
+      <Route path="/category" >
         <Route path="pets" element={<ItemList site="bird"/>} />
         <Route path="cages" element={<ItemList site="cage"/>} />
         <Route path="food" element={<ItemList site="food"/>} />
