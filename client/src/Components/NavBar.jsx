@@ -4,7 +4,9 @@ import "../Stylesheets/NavBar.css";
 const NavBar = () => {
   return (
     <div id="navBar-wrapper">
-      <h1 id="store-name">Chirp</h1>
+      <a href="http://127.0.0.1:5173/">
+        <h1 id="store-name">Chirp</h1>
+      </a>
       <nav className="store-links-wrapper">
         <NavLink className="store-links" to="/pets">
           Pets

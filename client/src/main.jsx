@@ -16,10 +16,10 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path="/" element={<RootLayout />}>
-        <Route path="pets" element={<ItemList/>} />
-        <Route path="cages" />
-        <Route path="food" />
-        <Route path="toys" />
+        <Route path="pets" element={<ItemList site="bird"/>} />
+        <Route path="cages" element={<ItemList site="cage"/>} />
+        <Route path="food" element={<ItemList site="food"/>} />
+        <Route path="toys" element={<ItemList/>} />
       </Route>
       <Route path="/cart" element={<CartLayout />} />
     </Route>

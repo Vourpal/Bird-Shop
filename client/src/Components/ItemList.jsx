@@ -1,12 +1,31 @@
+import { useState, useEffect } from "react";
 
+const ItemList = (props) => {
+  const [data, setData] = useState([]);
 
-const ItemList  = () => {
-  return(
+  useEffect(() => {
+    fetch(`http://localhost:3000/${props.site}`)
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [props.site]);
+  console.log(data, "is it empty or not");
+  return (
     <div>
-        probably use a map function here to create individual items pertaining to which link you press?
+      {data.map((list) => (
+        <div>
+        <p>{list.name}</p>
+        <img src={list.image}></img>
+        </div>
+      ))}
     </div>
+  );
+};
 
-  )
-}
+export default ItemList;
 
-export default ItemList
+// {data.map((list) => (
+//   <p>{list.name}</p>
+// ))}
