@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import NavBar from "../Components/NavBar"
-import { Outlet } from "react-router-dom";
-
+import NavBar from "../Components/NavBar";
+import { Outlet, Link } from "react-router-dom";
+import "../Stylesheets/ItemList.css"
 const ItemList = (props) => {
   const [data, setData] = useState([]);
 
@@ -19,12 +19,16 @@ const ItemList = (props) => {
       <header>
         <NavBar />
       </header>
-      {data.map((list) => (
-        <div>
-          <p>{list.name}</p>
-          <img src={list.image}></img>
-        </div>
-      ))}
+      <main id="grid-item-wrapper">
+        {data.map((list) => (
+          <div className="individual-item-wrapper">
+            <img className="image-resizing" src={list.image}></img>
+            <div>{list.category}</div>
+            <Link to={`/category/${props.details}/details/${list.name}`}>{list.name}</Link>
+            <div>{list.price}</div>
+          </div>
+        ))}
+      </main>
       <Outlet />
     </div>
   );

@@ -1,11 +1,15 @@
 import { NavLink } from "react-router-dom";
 import "../Stylesheets/NavBar.css";
+import logo from "../Stylesheets/Images/image-logo.jpg";
 
 const NavBar = () => {
   return (
     <div id="navBar-wrapper">
       <a href="http://127.0.0.1:5173/">
-        <h1 id="store-name">Chirp</h1>
+        <div id="title-wrapper">
+          <h1 id="store-name">Chirp</h1>
+          <img src={logo} id="logo-image"></img>
+        </div>
       </a>
       <nav className="store-links-wrapper">
         <NavLink className="store-links" to="/category/pets">
@@ -16,9 +20,6 @@ const NavBar = () => {
         </NavLink>
         <NavLink className="store-links" to="/category/food">
           Food
-        </NavLink>
-        <NavLink className="store-links" to="/toys">
-          Toys
         </NavLink>
         <NavLink className="store-links" to="/cart">
           Cart

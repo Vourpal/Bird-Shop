@@ -35,12 +35,14 @@ app.get("/bird", async (req, res) => {
   res.send(bird);
 });
 
-app.get("/home", (req, res) => {
-  res.json({
-    name: "Bill",
-    age: 99
-  });
-});
+app.get("/category/:id", async (req, res) => {
+  id = req.params["id"]
+  console.log(id)
+  const details = await Item.findOne({name: id})
+  console.log(details)
+  res.send(details)
+})
+
 app.listen(3000, () => {
   console.log("Server side port is on!");
 });
