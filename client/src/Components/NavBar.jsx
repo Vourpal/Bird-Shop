@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import "../Stylesheets/NavBar.css";
 import logo from "../Stylesheets/Images/image-logo.jpg";
+import Cart from "./Cart";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div id="navBar-wrapper">
       <a href="http://127.0.0.1:5173/">
@@ -22,7 +23,7 @@ const NavBar = () => {
           Food
         </NavLink>
         <NavLink className="store-links" to="/cart">
-          Cart
+          Cart <Cart count={props.count}/>
         </NavLink>
       </nav>
     </div>

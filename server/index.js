@@ -19,7 +19,6 @@ async function main() {
 
 app.get("/food", async (req, res) => {
   const food = await Item.find({ category: "food" });
-  console.log(food);
   res.send(food);
 });
 
@@ -31,15 +30,12 @@ app.get("/cage", async (req, res) => {
 
 app.get("/bird", async (req, res) => {
   const bird = await Item.find({ category: "bird" });
-  console.log(bird);
   res.send(bird);
 });
 
 app.get("/category/:id", async (req, res) => {
   id = req.params["id"]
-  console.log(id)
   const details = await Item.findOne({name: id})
-  console.log(details)
   res.send(details)
 })
 

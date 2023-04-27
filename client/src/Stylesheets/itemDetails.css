@@ -1,0 +1,15 @@
+#details-flexbox-wrapper{
+    display: flex;
+    width: 1200px;
+    margin: auto;
+    gap: 5rem;
+}
+
+#detail-product-image{
+    max-width: 600px;
+}
+
+#description-wrapper{
+    margin: auto;
+    width: 1200px;
+}
