@@ -2,7 +2,8 @@ import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "../Stylesheets/itemDetails.css";
-
+import { Outlet } from "react-router-dom";
+import Contact from "./Contact";
 const ItemDetails = (props) => {
   const [details, setDetails] = useState({});
   const [count, setCount] = useState(0);
@@ -17,12 +18,12 @@ const ItemDetails = (props) => {
   }, []);
   console.log(details);
   return (
-    <div>
+    <div id="background-color">
       <NavBar count={count} />
       <div id="details-flexbox-wrapper">
         <img src={details.image} id="detail-product-image"></img>
         <div id="text-box-wrapper">
-          <h2>{details.name}</h2>
+          <h2 id="center-title">{details.name}</h2>
           <span>${details.price} + Free Shipping</span>
           <p>
             Occaecat proident nisi sint ad eu. Ut dolore dolore laboris officia
@@ -64,6 +65,8 @@ const ItemDetails = (props) => {
           <p>Nostrud laboris nisi duis ipsum anim tempor quis.</p>
         </div>
       </div>
+      <Contact/>
+      <Outlet/>
     </div>
   );
 };

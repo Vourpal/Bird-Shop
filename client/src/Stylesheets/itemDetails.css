@@ -1,3 +1,7 @@
+#background-color{
+    background-color: #f8f6f3;
+}
+
 #details-flexbox-wrapper{
     display: flex;
     width: 1200px;
@@ -12,4 +16,8 @@
 #description-wrapper{
     margin: auto;
     width: 1200px;
+}
+
+#center-title{
+    text-align: left;
 }
