@@ -5,18 +5,20 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Routes,
 } from "react-router-dom";
 import ErrorPage from "./Layout/error-page";
-import RootLayout from "./Layout/RootLayout";
+import HomeLayout from "./Layout/HomeLayout";
 import CartLayout from "./Layout/CartLayout";
 import ItemList from "./Components/ItemList";
 import ItemDetails from "./Components/ItemDetails";
+import RootLayout from "./Layout/RootLayout";
 
 // React-Router layout
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<RootLayout />} />
+    <Route path="/" element={<RootLayout/>}>
+      <Route index element={<HomeLayout />} />
       <Route path="/category">
         <Route path="pets" element={<ItemList site="bird" details="pets" />} />
         <Route path="pets/details/:id" element={<ItemDetails />} />
