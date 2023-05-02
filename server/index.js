@@ -7,7 +7,7 @@ var cors = require('cors')
 
 main().catch((err) => console.log(err));
 
-app.use(cors())
+app.use(cors({ origin: "*" }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -37,6 +37,11 @@ app.get("/category/:id", async (req, res) => {
   id = req.params["id"]
   const details = await Item.findOne({name: id})
   res.send(details)
+})
+
+app.get("/random", async (req, res) => {
+  const random = await Item.aggregate([{ $sample: { size: 4 } }])
+  res.send(random)
 })
 
 app.listen(3000, () => {

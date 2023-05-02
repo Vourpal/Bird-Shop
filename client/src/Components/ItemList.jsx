@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import NavBar from "../Components/NavBar";
 import { Outlet, Link } from "react-router-dom";
-import "../Stylesheets/ItemList.css"
+import "../Stylesheets/ItemList.css";
+import Contact from "./Contact";
+
 const ItemList = (props) => {
   const [data, setData] = useState([]);
 
@@ -24,11 +26,14 @@ const ItemList = (props) => {
           <div className="individual-item-wrapper">
             <img className="image-resizing" src={list.image}></img>
             <div>{list.category}</div>
-            <Link to={`/category/${props.details}/details/${list.name}`}>{list.name}</Link>
+            <Link to={`/category/${props.details}/details/${list.name}`}>
+              {list.name}
+            </Link>
             <div>{list.price}</div>
           </div>
         ))}
       </main>
+      <Contact />
       <Outlet />
     </div>
   );
