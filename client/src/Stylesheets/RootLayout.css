@@ -1,14 +1,14 @@
-html{
-  font-family: 'Lato', sans-serif;
+html {
+  font-family: "Lato", sans-serif;
 }
 
-ul{
+ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-li{
+li {
   margin-bottom: 2px;
   margin: 0;
 }
@@ -30,24 +30,35 @@ li{
   width: 32rem;
   margin-left: 3rem;
 }
+
+#opening-title-text {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#opening-title-paragraph {
+  line-height: 1.4rem;
+}
+
 #information-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 20rem);
+  grid-template-columns: repeat(auto-fit, 20rem);
   justify-items: center;
   background-color: black;
-  gap: 30px;
+  gap: 3rem;
   padding: 3rem 5rem;
   justify-content: center;
 }
 
 .information-class {
   border: 2px solid black;
-  background-color: #f7c8e0;
+  background-color: rgb(51, 51, 51);
   width: 20rem;
   height: 5.5rem;
   text-align: center;
   font-size: 1.5rem;
   line-height: 5rem;
+  color: white;
 }
 
 h2 {
