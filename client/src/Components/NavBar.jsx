@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "../Stylesheets/NavBar.css";
 import logo from "../Stylesheets/Images/image-logo.jpg";
 import Cart from "./Cart";
@@ -6,12 +6,12 @@ import Cart from "./Cart";
 const NavBar = (props) => {
   return (
     <div id="navBar-wrapper">
-      <a href="http://127.0.0.1:5173/">
+      <Link to={"/"}>
         <div id="title-wrapper">
           <h1 id="store-name">Chirp</h1>
           <img src={logo} id="logo-image"></img>
         </div>
-      </a>
+      </Link>
       <nav className="store-links-wrapper">
         <NavLink className="store-links" to="/category/pets">
           Pets

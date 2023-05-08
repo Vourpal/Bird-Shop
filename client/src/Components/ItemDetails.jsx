@@ -1,10 +1,16 @@
 import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext, useReducer } from "react";
 import "../Stylesheets/itemDetails.css";
 import { Outlet } from "react-router-dom";
 import Contact from "./Contact";
-const ItemDetails = (props) => {
+import { cartDataContext } from "../Layout/RootLayout";
+import { cartDataDispatchContext } from "../Layout/RootLayout";
+
+const ItemDetails = () => {
+  const tasks = useContext(cartDataContext);
+  const dispatch = useContext(cartDataDispatchContext);
+
   const [details, setDetails] = useState({});
   const [count, setCount] = useState(0);
   let { id } = useParams();
@@ -16,7 +22,7 @@ const ItemDetails = (props) => {
         console.log(err);
       });
   }, []);
-  console.log(details);
+  console.log("outside of function", tasks);
   return (
     <div id="background-color">
       <NavBar count={count} />
@@ -50,13 +56,16 @@ const ItemDetails = (props) => {
             <button
               type="submit"
               onClick={() => {
-                alert(`The count for the thingy should be ${count}`);
+                dispatch({
+                  type: "updated",
+                  details: details,
+                  count: count,
+                });
               }}
             >
               Submit me uwu
             </button>
           </form>
-          <p>Hellow the number is witawawy: {count}</p>
         </div>
       </div>
       <div>
@@ -65,10 +74,19 @@ const ItemDetails = (props) => {
           <p>Nostrud laboris nisi duis ipsum anim tempor quis.</p>
         </div>
       </div>
-      <Contact/>
-      <Outlet/>
+      <Contact />
+      <Outlet />
     </div>
   );
 };
 
 export default ItemDetails;
+
+// i want to make an array of objects with the information provided from the itemDetails when i submit "add to car"
+// ok it probably has something to do with the fact that i am doing cart.push a second time and the whole thing breaks.
+
+// Object.assign({}, {details, count})
+
+// setCartCount(count)
+// setCart(cart.push({details, count}))
+// console.log(cart)
