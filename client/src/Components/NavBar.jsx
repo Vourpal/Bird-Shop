@@ -2,8 +2,14 @@ import { NavLink, Link } from "react-router-dom";
 import "../Stylesheets/NavBar.css";
 import logo from "../Stylesheets/Images/image-logo.jpg";
 import Cart from "./Cart";
+import { useContext } from "react";
+import { cartDataContext } from "../Layout/RootLayout";
 
 const NavBar = (props) => {
+  const tasks = useContext(cartDataContext)
+  let cartCount = tasks.reduce((a, b) => {
+    return a + parseInt(b.count);
+  }, 0);
   return (
     <div id="navBar-wrapper">
       <Link to={"/"}>
@@ -23,7 +29,7 @@ const NavBar = (props) => {
           Food
         </NavLink>
         <NavLink className="store-links" to="/cart">
-          Cart <Cart count={props.count}/>
+          Cart {cartCount}
         </NavLink>
       </nav>
     </div>

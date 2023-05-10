@@ -12,7 +12,7 @@ const ItemDetails = () => {
   const dispatch = useContext(cartDataDispatchContext);
 
   const [details, setDetails] = useState({});
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   let { id } = useParams();
   const valueExists = tasks.some((data) => data.details._id === details._id);
 
@@ -55,16 +55,18 @@ const ItemDetails = () => {
                 setCount(e.target.value);
               }}
               type="number"
+              min="1"
               required
             ></input>
             <button
               type="submit"
               onClick={() => {
                 if (valueExists) {
-                  let updateIndex = tasks.findIndex(
-                    (obj) => obj.details._id === details._id
-                  );
-                  tasks[updateIndex].count = count;
+                  dispatch({
+                    type: "updatedCount",
+                    details: details,
+                    count: count,
+                  })
                 } else {
                   dispatch({
                     type: "updated",

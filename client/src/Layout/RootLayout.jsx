@@ -29,6 +29,13 @@ function cartReducer(tasks, action) {
     return(
       [...deletedItemsArray] 
     )
+  }else if (action.type === "updatedCount"){
+    const newCountArray = [...tasks]
+    let updateIndex = tasks.findIndex(
+      (obj) => obj.details._id === action.details._id
+    );
+    newCountArray[updateIndex].count = action.count;
+    return [...newCountArray]
   }
 }
 
