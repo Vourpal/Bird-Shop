@@ -10,8 +10,10 @@ a{
     background-color: white;
 }
 
-#title-wrapper{
+#title-wrapper {
     position: relative;
+    width: 300px;
+    margin: auto;
 }
 #logo-image {
     background-color: white;

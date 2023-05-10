@@ -6,18 +6,19 @@ import { useContext } from "react";
 import { cartDataContext } from "../Layout/RootLayout";
 
 const NavBar = (props) => {
-  const tasks = useContext(cartDataContext)
+  const tasks = useContext(cartDataContext);
   let cartCount = tasks.reduce((a, b) => {
     return a + parseInt(b.count);
   }, 0);
   return (
     <div id="navBar-wrapper">
-      <Link to={"/"}>
-        <div id="title-wrapper">
-          <h1 id="store-name">Chirp</h1>
+      <div id="title-wrapper">
+        <Link to={"/"}>
           <img src={logo} id="logo-image"></img>
-        </div>
-      </Link>
+          <h1 id="store-name">Chirp</h1>
+        </Link>
+      </div>
+
       <nav className="store-links-wrapper">
         <NavLink className="store-links" to="/category/pets">
           Pets
@@ -29,7 +30,7 @@ const NavBar = (props) => {
           Food
         </NavLink>
         <NavLink className="store-links" to="/cart">
-          Cart {cartCount}
+          Cart {cartCount === 0 ? null : cartCount}
         </NavLink>
       </nav>
     </div>
