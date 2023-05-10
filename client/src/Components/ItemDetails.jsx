@@ -14,6 +14,8 @@ const ItemDetails = () => {
   const [details, setDetails] = useState({});
   const [count, setCount] = useState(0);
   let { id } = useParams();
+  const valueExists = tasks.some((data) => data.details._id === details._id);
+
   useEffect(() => {
     fetch(`http://localhost:3000/category/${id}`)
       .then((res) => res.json())
@@ -22,7 +24,9 @@ const ItemDetails = () => {
         console.log(err);
       });
   }, []);
+
   console.log("outside of function", tasks);
+
   return (
     <div id="background-color">
       <NavBar count={count} />
@@ -56,14 +60,21 @@ const ItemDetails = () => {
             <button
               type="submit"
               onClick={() => {
-                dispatch({
-                  type: "updated",
-                  details: details,
-                  count: count,
-                });
+                if (valueExists) {
+                  let updateIndex = tasks.findIndex(
+                    (obj) => obj.details._id === details._id
+                  );
+                  tasks[updateIndex].count = count;
+                } else {
+                  dispatch({
+                    type: "updated",
+                    details: details,
+                    count: count,
+                  });
+                }
               }}
             >
-              Submit me uwu
+              {valueExists ? "Edit" : "Add to Cart"}
             </button>
           </form>
         </div>

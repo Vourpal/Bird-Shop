@@ -15,7 +15,6 @@ const ItemList = (props) => {
         console.log(err);
       });
   }, [props.site]);
-  console.log(data, "is it empty or not");
   return (
     <div>
       <header>
@@ -23,7 +22,7 @@ const ItemList = (props) => {
       </header>
       <main id="grid-item-wrapper">
         {data.map((list) => (
-          <div className="individual-item-wrapper">
+          <div className="individual-item-wrapper" key={list._id}>
             <img className="image-resizing" src={list.image}></img>
             <div>{list.category}</div>
             <Link to={`/category/${props.details}/details/${list.name}`}>

@@ -26,7 +26,7 @@ const HomeLayout = () => {
       return site;
     }
   };
-  console.log("I fired once :)", random);
+
   return (
     <div>
       <header>
@@ -54,7 +54,7 @@ const HomeLayout = () => {
         <h2 id="third-section-title">Best Selling Product</h2>
         <div id="random-list-item-wrapper">
           {random.map((randomList) => (
-            <div className="random-list-item">
+            <div className="random-list-item" key={randomList.name}>
               <img
                 src={randomList.image}
                 className="random-image-resizing"
