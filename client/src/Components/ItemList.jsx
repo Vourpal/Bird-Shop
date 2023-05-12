@@ -7,6 +7,11 @@ import Contact from "./Contact";
 const ItemList = (props) => {
   const [data, setData] = useState([]);
 
+  let capatalizeName = (string) => {
+    const capatalized = string.charAt(0).toUpperCase() + string.slice(1)
+    console.log(capatalized)
+    return capatalized
+  }
   useEffect(() => {
     fetch(`http://localhost:3000/${props.site}`)
       .then((res) => res.json())
@@ -15,6 +20,7 @@ const ItemList = (props) => {
         console.log(err);
       });
   }, [props.site]);
+
   return (
     <div>
       <header>
@@ -24,11 +30,11 @@ const ItemList = (props) => {
         {data.map((list) => (
           <div className="individual-item-wrapper" key={list._id}>
             <img className="image-resizing" src={list.image}></img>
-            <div>{list.category}</div>
-            <Link to={`/category/${props.details}/details/${list.name}`}>
+            <div className="category-name">{capatalizeName(list.category)}</div>
+            <Link to={`/category/${props.details}/details/${list.name}`} className="link-name">
               {list.name}
             </Link>
-            <div>{list.price}</div>
+            <div>{`$${list.price}`}</div>
           </div>
         ))}
       </main>
@@ -37,6 +43,7 @@ const ItemList = (props) => {
     </div>
   );
 };
+
 
 export default ItemList;
 

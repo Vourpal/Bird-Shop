@@ -9,11 +9,20 @@
 
 .image-resizing{
     height: 10rem;
-    width: 15rem;
+    width: 12rem;
 }
 
 .individual-item-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.category-name{
+    color: rgb(75, 71, 71);
+}
+
+.link-name{
+    font-weight: bold;
+    color: black;
 }

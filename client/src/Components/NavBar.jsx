@@ -29,8 +29,8 @@ const NavBar = (props) => {
         <NavLink className="store-links" to="/category/food">
           Food
         </NavLink>
-        <NavLink className="store-links" to="/cart">
-          Cart {cartCount === 0 ? null : cartCount}
+        <NavLink className="store-links" to="/cart" id="position-relative-count-tracker">
+          Cart <span id="count-tracker">{cartCount === 0 ? null : cartCount}</span>
         </NavLink>
       </nav>
     </div>

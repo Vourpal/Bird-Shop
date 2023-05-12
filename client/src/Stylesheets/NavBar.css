@@ -42,3 +42,10 @@ a{
     font-size: 1.5rem;
     text-decoration: none;
 }
+
+#position-relative-count-tracker{
+    position: relative;
+}
+#count-tracker{
+    position: absolute;
+}

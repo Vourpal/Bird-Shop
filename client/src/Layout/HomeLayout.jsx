@@ -8,6 +8,12 @@ import { Link } from "react-router-dom";
 const HomeLayout = () => {
   const [random, setRandom] = useState([]);
 
+  let capatalizeName = (string) => {
+    const capatalized = string.charAt(0).toUpperCase() + string.slice(1);
+    console.log(capatalized);
+    return capatalized;
+  };
+
   useEffect(() => {
     fetch("http://localhost:3000/random")
       .then((res) => res.json())
@@ -59,14 +65,16 @@ const HomeLayout = () => {
                 src={randomList.image}
                 className="random-image-resizing"
               ></img>
-              <div>{randomList.category}</div>
+              <div>{capatalizeName(randomList.category)}</div>
               <Link
+                className="link-name"
                 to={`/category/${randomLink(randomList.category)}/details/${
                   randomList.name
                 }`}
               >
                 {randomList.name}
               </Link>
+              <div>{`$${randomList.price}`}</div>
             </div>
           ))}
         </div>
