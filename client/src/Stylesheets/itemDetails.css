@@ -2,10 +2,11 @@
     background-color: #f8f6f3;
 }
 
-#details-flexbox-wrapper{
+#details-flexbox-wrapper {
     display: flex;
     width: 1200px;
     margin: auto;
+    padding-top: 7rem;
     gap: 5rem;
 }
 
@@ -21,3 +22,6 @@
 #center-title{
     text-align: left;
 }
+
+
+/* use clamp to make the images size decently, example would be the vampire parrot being tiny af */
