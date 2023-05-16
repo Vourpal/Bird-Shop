@@ -56,7 +56,7 @@ const shoppingList = [
     price: 1299.99,
     category: "bird",
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJLSx5jUJGCF66RSaKYPeQH_fHoTwO0yJVOJFFrNNKN5ootPo8Ov-rQWfZcQvxUCwLZv4&usqp=CAU",
+      "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcThZ3H9LR0Vy2B0IMslinsZDOdHKQY5g4YmxfTVumzv0h9rsWU_8vwjygw7m_LY2EtmymKER2wVNU_PklE",
   },
   {
     name: "African Grey Parrot",
@@ -96,9 +96,9 @@ const shoppingList = [
 ];
 
 Item.insertMany(shoppingList)
-.then(res =>{
-    console.log(res)
-})
-.catch(e =>{
-    console.log(e)
-})
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((e) => {
+    console.log(e);
+  });

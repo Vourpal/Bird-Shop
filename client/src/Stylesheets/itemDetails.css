@@ -10,8 +10,9 @@
     gap: 5rem;
 }
 
-#detail-product-image{
+#detail-product-image {
     max-width: 600px;
+    min-height: 470px;
 }
 
 #description-wrapper{

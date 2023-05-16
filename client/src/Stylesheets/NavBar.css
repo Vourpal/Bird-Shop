@@ -48,4 +48,5 @@ a{
 }
 #count-tracker{
     position: absolute;
+    left: 60px;
 }
