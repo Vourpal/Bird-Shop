@@ -8,10 +8,10 @@ const ItemList = (props) => {
   const [data, setData] = useState([]);
 
   let capatalizeName = (string) => {
-    const capatalized = string.charAt(0).toUpperCase() + string.slice(1)
-    console.log(capatalized)
-    return capatalized
-  }
+    const capatalized = string.charAt(0).toUpperCase() + string.slice(1);
+    console.log(capatalized);
+    return capatalized;
+  };
   useEffect(() => {
     fetch(`http://localhost:3000/${props.site}`)
       .then((res) => res.json())
@@ -28,14 +28,18 @@ const ItemList = (props) => {
       </header>
       <main id="grid-item-wrapper">
         {data.map((list) => (
-          <div className="individual-item-wrapper" key={list._id}>
-            <img className="image-resizing" src={list.image}></img>
-            <div className="category-name">{capatalizeName(list.category)}</div>
-            <Link to={`/category/${props.details}/details/${list.name}`} className="link-name">
-              {list.name}
-            </Link>
-            <div>{`$${list.price}`}</div>
-          </div>
+          <Link
+            to={`/category/${props.details}/details/${list.name}`}
+            className="individual-item-wrapper"
+            key={list._id}
+          >
+              <img className="image-resizing" src={list.image}></img>
+              <div className="category-name">
+                {capatalizeName(list.category)}
+              </div>
+              <div className="link-name">{list.name}</div>
+              <div>{`$${list.price}`}</div>
+          </Link>
         ))}
       </main>
       <Contact />
@@ -43,7 +47,6 @@ const ItemList = (props) => {
     </div>
   );
 };
-
 
 export default ItemList;
 

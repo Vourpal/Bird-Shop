@@ -43,9 +43,9 @@ a{
     text-decoration: none;
 }
 
-#position-relative-count-tracker{
-    position: relative;
+#position-relative-count-tracker {
+    display: flex;
+    width: 6rem;
+    justify-content: space-between;
 }
-#count-tracker{
-    position: absolute;
-}
+

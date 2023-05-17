@@ -60,22 +60,20 @@ const HomeLayout = () => {
         <h2 id="third-section-title">Best Selling Product</h2>
         <div id="random-list-item-wrapper">
           {random.map((randomList) => (
-            <div className="random-list-item" key={randomList.name}>
+            <Link
+              to={`/category/${randomLink(randomList.category)}/details/${
+                randomList.name
+              }`}
+              className="random-list-item"
+            >
               <img
                 src={randomList.image}
                 className="random-image-resizing"
               ></img>
               <div>{capatalizeName(randomList.category)}</div>
-              <Link
-                className="link-name"
-                to={`/category/${randomLink(randomList.category)}/details/${
-                  randomList.name
-                }`}
-              >
-                {randomList.name}
-              </Link>
+              <div className="link-name">{randomList.name}</div>
               <div>{`$${randomList.price}`}</div>
-            </div>
+            </Link>
           ))}
         </div>
       </main>
