@@ -4,9 +4,14 @@ const { Item } = require("../schema");
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/webShop");
+  await mongoose.connect("mongodb://chirp-db:tqmYrWsMDX3zG0eENEa1gcqTBKyOgsEFMmuNLNnuo0jHrXo3xo2rFdSxW5E01Tmm1hVmXFyeZDRUACDbJsZzhg==@chirp-db.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@chirp-db@");
   console.log("mongoose connection open!");
 }
+
+// async function main() {
+//   await mongoose.connect("mongodb://127.0.0.1:27017/webShop");
+//   console.log("mongoose connection open!");
+// }
 
 const shoppingList = [
   {
