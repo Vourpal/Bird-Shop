@@ -68,6 +68,7 @@ h2 {
 #random-list-item-wrapper {
   display: flex;
   justify-content: space-evenly;
+  padding-bottom: 2rem;
 }
 
 #random-list-item-wrapper img {

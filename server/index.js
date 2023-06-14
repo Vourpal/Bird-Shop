@@ -12,17 +12,17 @@ app.use(cors({ origin: "*" }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-async function main() {
-  await mongoose.connect(
-    "mongodb://chirp-db:tqmYrWsMDX3zG0eENEa1gcqTBKyOgsEFMmuNLNnuo0jHrXo3xo2rFdSxW5E01Tmm1hVmXFyeZDRUACDbJsZzhg==@chirp-db.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@chirp-db@"
-  ).then(() => console.log('Connection to CosmosDB successful'))
-  .catch((err) => console.error(err));
-}
-
 // async function main() {
-//   await mongoose.connect("mongodb://127.0.0.1:27017/webShop");
-//   console.log("mongoose connection open!");
+//   await mongoose.connect(
+//     "mongodb://chirp-db:tqmYrWsMDX3zG0eENEa1gcqTBKyOgsEFMmuNLNnuo0jHrXo3xo2rFdSxW5E01Tmm1hVmXFyeZDRUACDbJsZzhg==@chirp-db.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@chirp-db@"
+//   ).then(() => console.log('Connection to CosmosDB successful'))
+//   .catch((err) => console.error(err));
 // }
+
+async function main() {
+  await mongoose.connect("mongodb://127.0.0.1:27017/webShop");
+  console.log("mongoose connection open!");
+}
 
 app.get("/food", async (req, res) => {
   const food = await Item.find({ category: "food" });

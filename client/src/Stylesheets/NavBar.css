@@ -45,7 +45,7 @@ a{
 
 #position-relative-count-tracker {
     display: flex;
-    width: 6rem;
+    width: 5rem;
     justify-content: space-between;
 }
 

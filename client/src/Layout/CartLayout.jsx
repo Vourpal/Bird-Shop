@@ -30,7 +30,7 @@ const CartLayout = () => {
                 <div className="cart-item-wrapper" key={data.name}>
                   <h1>{data.count}</h1>
                   <div>{data.details.name}</div>
-                  <div>{data.details.price * data.count}</div>
+                  <div>{`$${data.details.price * data.count}`}</div>
                   <button
                     onClick={() => {
                       dispatch({

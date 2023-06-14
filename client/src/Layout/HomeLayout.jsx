@@ -14,6 +14,8 @@ const HomeLayout = () => {
     return capatalized;
   };
 
+  
+
   useEffect(() => {
     fetch("http://localhost:3000/random")
       .then((res) => res.json())
@@ -104,3 +106,6 @@ export default HomeLayout;
 // }
 // fetchData();
 // console.log("Is this working", random)
+
+
+// fix the react dev deploymentlater
