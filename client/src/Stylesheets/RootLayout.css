@@ -27,7 +27,7 @@ li {
 }
 
 #opening-text-wrapper {
-  width: 32rem;
+  max-width: 32rem;
   margin-left: 3rem;
 }
 
@@ -79,7 +79,38 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: black;
 }
+
+@media (max-width: 1200px) {
+  #random-list-item-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  #opening-image {
+    height: 18rem;
+  }
+  #logo-image {
+    max-height: 3.5rem;
+  }
+}
+
+@media (max-width: 600px){
+  #opening-wrapper{
+    flex-direction: column;
+  }
+  #opening-text-wrapper{
+    margin-left: 0px;
+    text-align: center;
+  }
+  #random-list-item-wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+
 
 
 /* If this shit breaks change the name to HomeLayout.css */

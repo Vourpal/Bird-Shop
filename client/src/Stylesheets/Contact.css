@@ -41,3 +41,9 @@ footer {
   #footer-logo-image{
     height: 5rem;
   }
+
+  @media (max-width: 600px) {
+    #footer-grid-wrapper {
+      grid-template-columns: 1fr;
+    }
+  }

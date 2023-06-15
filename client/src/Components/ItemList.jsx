@@ -38,7 +38,7 @@ const ItemList = (props) => {
                 {capatalizeName(list.category)}
               </div>
               <div className="link-name">{list.name}</div>
-              <div>{`$${list.price}`}</div>
+              <div className="price-color">{`$${list.price}`}</div>
           </Link>
         ))}
       </main>

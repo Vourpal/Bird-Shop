@@ -74,7 +74,7 @@ const HomeLayout = () => {
               ></img>
               <div>{capatalizeName(randomList.category)}</div>
               <div className="link-name">{randomList.name}</div>
-              <div>{`$${randomList.price}`}</div>
+              <div className="price-color">{`$${randomList.price}`}</div>
             </Link>
           ))}
         </div>
