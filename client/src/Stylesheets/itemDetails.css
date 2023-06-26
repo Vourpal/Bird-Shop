@@ -4,7 +4,7 @@
 
 #details-flexbox-wrapper {
     display: flex;
-    width: 1200px;
+    justify-content: center;
     margin: auto;
     padding-top: 7rem;
     gap: 5rem;
@@ -15,14 +15,26 @@
     min-height: 470px;
 }
 
-#description-wrapper{
-    margin: auto;
-    width: 1200px;
+#text-box-wrapper{
+    max-width: 37rem;
 }
 
 #center-title{
     text-align: left;
 }
 
+@media (max-width: 1200px){
+    #details-flexbox-wrapper{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width:600px){
+    #detail-product-image{
+        max-width: 400px;
+        min-height: auto;
+    }
+}
 
 /* use clamp to make the images size decently, example would be the vampire parrot being tiny af */
