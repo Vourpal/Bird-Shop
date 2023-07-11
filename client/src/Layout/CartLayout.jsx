@@ -9,14 +9,14 @@ const CartLayout = () => {
   const tasks = useContext(cartDataContext);
   const dispatch = useContext(cartDataDispatchContext);
   const [subtotal, setSubtotal] = useState(0);
-  console.log(subtotal)
+  console.log(subtotal);
   useEffect(() => {
-    let totalCart = 0
+    let totalCart = 0;
     for (const total of tasks) {
       totalCart += total.count * total.details.price;
     }
-    setSubtotal(totalCart)
-  },[tasks]);
+    setSubtotal(totalCart);
+  }, [tasks]);
   return (
     <div>
       <NavBar />
@@ -28,19 +28,25 @@ const CartLayout = () => {
             tasks.map((data) => {
               return (
                 <div className="cart-item-wrapper" key={data.name}>
-                  <h1>{data.count}</h1>
-                  <div>{data.details.name}</div>
-                  <div>{`$${data.details.price * data.count}`}</div>
-                  <button
-                    onClick={() => {
-                      dispatch({
-                        type: "deleted",
-                        id: data.details._id,
-                      });
-                    }}
-                  >
-                    Remove
-                  </button>
+                  <img
+                    className="cart-image-aspect-size"
+                    src={data.details.image}
+                  ></img>
+                  <div className="cart-item-information">
+                    <div>{data.details.name}</div>
+                    <div>{`$${data.details.price * data.count}`}</div>
+                    <div> Quantity: {data.count}</div>
+                    <button
+                      onClick={() => {
+                        dispatch({
+                          type: "deleted",
+                          id: data.details._id,
+                        });
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               );
             })
@@ -48,7 +54,7 @@ const CartLayout = () => {
         </div>
         <div id="checkout-wrapper">
           <span>Summary</span>
-          <span>Subtotal </span>
+          <span>Subtotal: ${subtotal} </span>
         </div>
       </main>
 

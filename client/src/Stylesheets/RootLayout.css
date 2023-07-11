@@ -74,12 +74,15 @@ h2 {
 #random-list-item-wrapper img {
   width: 300px;
   height: 300px;
+  object-fit: cover;
+  object-position: top;
 }
 .random-list-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   color: black;
+  
 }
 
 @media (max-width: 1200px) {

@@ -12,6 +12,8 @@
 .image-resizing{
     height: 310px;
     width: 394px;
+    object-fit: cover;
+    object-position: top;
 }
 .individual-item-wrapper {
     display: flex;

@@ -1,4 +1,21 @@
-#cart-wrapper{
-    min-height: 43rem;
+#cart-wrapper {
+  min-height: 43rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f6f3;
+}
+.cart-item-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  min-width: 60vw;
+  background-color: white;
 }
 
+.cart-image-aspect-size {
+    width: 15rem;
+    object-fit: contain;
+    max-height: 15rem;
+}
