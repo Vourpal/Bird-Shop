@@ -9,6 +9,7 @@ const CartLayout = () => {
   const tasks = useContext(cartDataContext);
   const dispatch = useContext(cartDataDispatchContext);
   const [subtotal, setSubtotal] = useState(0);
+  const [value, setValue] = useState(1);
   console.log(subtotal);
   useEffect(() => {
     let totalCart = 0;
@@ -34,8 +35,28 @@ const CartLayout = () => {
                   ></img>
                   <div className="cart-item-information">
                     <div>{data.details.name}</div>
-                    <div>{`$${data.details.price * data.count}`}</div>
+                    <div>{`$${
+                      data.details.price.toFixed(2) * data.count
+                    }`}</div>
                     <div> Quantity: {data.count}</div>
+                    <input
+                      onChange={(e) => {
+                        setValue(e.target.value)
+                      }}
+                      type="number"
+                      min="1"
+                    ></input>
+                    <button
+                      onClick={() => {
+                        dispatch({
+                          type: "updatedCount",
+                          details: data.details,
+                          count: value,
+                        });
+                      }}
+                    >
+                      Edit
+                    </button>
                     <button
                       onClick={() => {
                         dispatch({
@@ -54,7 +75,7 @@ const CartLayout = () => {
         </div>
         <div id="checkout-wrapper">
           <span>Summary</span>
-          <span>Subtotal: ${subtotal} </span>
+          <span>Subtotal: ${subtotal.toFixed(2)} </span>
         </div>
       </main>
 
@@ -67,3 +88,5 @@ const CartLayout = () => {
 export default CartLayout;
 
 //  <img src={data.details.image}></img>
+
+// TODO: Make sure to add updatedCount dispatch when making it so that you can edit in the cart screen
